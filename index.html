@@ -350,17 +350,99 @@
       👻
     </div>
 
-    <!-- Fausses cibles / leurres -->
-    <div class="decoy" style="left:5%;top:15%;"  onclick="wrongAnswer('Non, c\'est la saucisse du Tourmalet.')">🌭</div>
-    <div class="decoy" style="left:78%;top:8%;"  onclick="wrongAnswer('C\'est le planning v12.3 de Nico.')">📊</div>
-    <div class="decoy" style="left:22%;top:82%;" onclick="wrongAnswer('C\'est le Ti-punch de Nico. Pas Thibault.')">🍹</div>
-    <div class="decoy" style="left:88%;top:55%;" onclick="wrongAnswer('C\'est Damien qui vérifie les équinoxes.')">🧔</div>
-    <div class="decoy" style="left:42%;top:25%;" onclick="wrongAnswer('C\'est la galette de Laurent. AKA crêpe.')">🥞</div>
-    <div class="decoy" style="left:60%;top:88%;" onclick="wrongAnswer('C\'est PA... en train de ne pas envoyer ses photos.')">📷</div>
-    <div class="decoy" style="left:12%;top:48%;" onclick="wrongAnswer('C\'est Seb. Méfie-toi.')">😎</div>
-    <div class="decoy" style="left:55%;top:45%;" onclick="wrongAnswer('Non. Mais tu es courageux.')">⛷️</div>
-    <div class="decoy" style="left:30%;top:12%;" onclick="wrongAnswer('C\'est le télésiège. Thibault n\'est pas dessus.')">🏔️</div>
-    <div class="decoy" style="left:70%;top:72%;" onclick="wrongAnswer('Un kayak. Laurent y a failli se noyer.')">🚣</div>
+    <!-- r1 -->
+    <div class="decoy" style="left:3%;top:7%;"   onclick="wrongAnswer('Non, c\'est la saucisse du Tourmalet.', event)">🌭</div>
+    <div class="decoy" style="left:10%;top:4%;"  onclick="wrongAnswer('La carte de Nico. Version 17.', event)">🗺️</div>
+    <div class="decoy" style="left:17%;top:8%;"  onclick="wrongAnswer('C\'est Seb. Méfie-toi.', event)">😎</div>
+    <div class="decoy" style="left:25%;top:5%;"  onclick="wrongAnswer('Un hélicoptère sans Thibault.', event)">🚁</div>
+    <div class="decoy" style="left:33%;top:9%;"  onclick="wrongAnswer('Le planning v12.3 de Nico.', event)">📊</div>
+    <div class="decoy" style="left:43%;top:4%;"  onclick="wrongAnswer('Un traîneau. Mais Thibault n\'est pas dessus.', event)">🛷</div>
+    <div class="decoy" style="left:51%;top:8%;"  onclick="wrongAnswer('Une bière. Mais pas Thibault.', event)">🍺</div>
+    <div class="decoy" style="left:60%;top:5%;"  onclick="wrongAnswer('Des lunettes de ski. Thibault les a perdues.', event)">🥽</div>
+    <div class="decoy" style="left:68%;top:9%;"  onclick="wrongAnswer('C\'est le Pic du Midi. Thibault n\'est pas là-haut.', event)">🏔️</div>
+    <div class="decoy" style="left:76%;top:4%;"  onclick="wrongAnswer('Un bonnet. Peut-être celui de Thibault.', event)">🧢</div>
+    <div class="decoy" style="left:83%;top:8%;"  onclick="wrongAnswer('Un télésiège vide. Raté.', event)">🚡</div>
+    <div class="decoy" style="left:91%;top:5%;"  onclick="wrongAnswer('C\'est Nico en mode full-chrono depuis 6h.', event)">⛷️</div>
+    <!-- r2 -->
+    <div class="decoy" style="left:5%;top:15%;"  onclick="wrongAnswer('Un café. Nico en est à son 4ème.', event)">☕</div>
+    <div class="decoy" style="left:13%;top:18%;" onclick="wrongAnswer('Du chocolat chaud. Après-ski oblige.', event)">🍫</div>
+    <div class="decoy" style="left:21%;top:14%;" onclick="wrongAnswer('La galette de Laurent. Aka crêpe.', event)">🥞</div>
+    <div class="decoy" style="left:30%;top:19%;" onclick="wrongAnswer('C\'est PA... qui n\'a pas envoyé ses photos.', event)">📷</div>
+    <div class="decoy" style="left:40%;top:14%;" onclick="wrongAnswer('Des gants de ski. Quelqu\'un les a perdus.', event)">🧤</div>
+    <div class="decoy" style="left:49%;top:20%;" onclick="wrongAnswer('Un kayak. Laurent y a failli se noyer.', event)">🚣</div>
+    <div class="decoy" style="left:57%;top:15%;" onclick="wrongAnswer('C\'est Damien qui calcule les équinoxes.', event)">🧔</div>
+    <div class="decoy" style="left:66%;top:19%;" onclick="wrongAnswer('Non, c\'est juste un crabe.', event)">🦀</div>
+    <div class="decoy" style="left:75%;top:14%;" onclick="wrongAnswer('Des frites. Mais pas Thibault.', event)">🍟</div>
+    <div class="decoy" style="left:84%;top:18%;" onclick="wrongAnswer('Une boussole. Ne pointe pas vers Thibault.', event)">🧭</div>
+    <div class="decoy" style="left:93%;top:14%;" onclick="wrongAnswer('Un sac à dos. 42 items dedans, pas Thibault.', event)">🎒</div>
+    <!-- r3 -->
+    <div class="decoy" style="left:4%;top:28%;"  onclick="wrongAnswer('C\'est un ours. Méfie-toi.', event)">🐻</div>
+    <div class="decoy" style="left:12%;top:31%;" onclick="wrongAnswer('Une chaussure de rando perdue.', event)">🥾</div>
+    <div class="decoy" style="left:20%;top:27%;" onclick="wrongAnswer('Le Ti-punch. Pas Thibault.', event)">🍹</div>
+    <div class="decoy" style="left:29%;top:32%;" onclick="wrongAnswer('Un bâton de ski. Pas Thibault.', event)">🏒</div>
+    <div class="decoy" style="left:38%;top:27%;" onclick="wrongAnswer('De la bière fraîche. Elle a disparu vite.', event)">🍻</div>
+    <div class="decoy" style="left:47%;top:31%;" onclick="wrongAnswer('Une lampe torche. Cherche encore.', event)">🔦</div>
+    <div class="decoy" style="left:56%;top:28%;" onclick="wrongAnswer('Un aigle. Peut-être qu\'il a vu Thibault.', event)">🦅</div>
+    <div class="decoy" style="left:64%;top:32%;" onclick="wrongAnswer('Champagne ! Mais Thibault n\'est pas là.', event)">🥂</div>
+    <div class="decoy" style="left:72%;top:27%;" onclick="wrongAnswer('Une tente sans Thibault dedans.', event)">⛺</div>
+    <div class="decoy" style="left:81%;top:31%;" onclick="wrongAnswer('Des skis sans skieur. Bon signe ?', event)">🎿</div>
+    <div class="decoy" style="left:90%;top:28%;" onclick="wrongAnswer('Un bretzel. Vraiment.', event)">🥨</div>
+    <!-- r4 -->
+    <div class="decoy" style="left:2%;top:42%;"  onclick="wrongAnswer('Une pizza. Pas Thibault.', event)">🍕</div>
+    <div class="decoy" style="left:11%;top:45%;" onclick="wrongAnswer('Un puzzle. Il manque une pièce : Thibault.', event)">🧩</div>
+    <div class="decoy" style="left:20%;top:41%;" onclick="wrongAnswer('C\'est Seb, encore lui.', event)">🤙</div>
+    <div class="decoy" style="left:29%;top:46%;" onclick="wrongAnswer('Un drapeau ESF. Thibault n\'est pas instructeur.', event)">🚩</div>
+    <div class="decoy" style="left:37%;top:42%;" onclick="wrongAnswer('Du fromage de montagne. Raté.', event)">🧀</div>
+    <div class="decoy" style="left:46%;top:45%;" onclick="wrongAnswer('Un trophée pour avoir essayé.', event)">🏆</div>
+    <div class="decoy" style="left:55%;top:41%;" onclick="wrongAnswer('Un plongeur égaré en montagne.', event)">🤿</div>
+    <div class="decoy" style="left:64%;top:46%;" onclick="wrongAnswer('C\'est juste un canard.', event)">🦆</div>
+    <div class="decoy" style="left:72%;top:42%;" onclick="wrongAnswer('Une clé. Mais laquelle ?', event)">🔑</div>
+    <div class="decoy" style="left:82%;top:45%;" onclick="wrongAnswer('Nico fait du camping sauvage.', event)">🏕️</div>
+    <div class="decoy" style="left:92%;top:41%;" onclick="wrongAnswer('Un poisson en montagne. Bizarre.', event)">🐟</div>
+    <!-- r5 (Thibault est à 34%,58%) -->
+    <div class="decoy" style="left:6%;top:54%;"  onclick="wrongAnswer('Non, c\'est quelqu\'un d\'autre.', event)">😄</div>
+    <div class="decoy" style="left:15%;top:58%;" onclick="wrongAnswer('Un snowboardeur. Pas Thibault.', event)">🏂</div>
+    <div class="decoy" style="left:24%;top:54%;" onclick="wrongAnswer('Le Tricount. Personne n\'est content.', event)">💸</div>
+    <div class="decoy" style="left:43%;top:57%;" onclick="wrongAnswer('Un hérisson. Aussi difficile à trouver que Thibault.', event)">🦔</div>
+    <div class="decoy" style="left:52%;top:53%;" onclick="wrongAnswer('Un VTT électrique. Avant qu\'il tombe.', event)">🚴</div>
+    <div class="decoy" style="left:61%;top:58%;" onclick="wrongAnswer('La vague qui a failli emporter Laurent.', event)">🌊</div>
+    <div class="decoy" style="left:70%;top:54%;" onclick="wrongAnswer('Un grimpeur perdu. Pas Thibault.', event)">🧗</div>
+    <div class="decoy" style="left:79%;top:57%;" onclick="wrongAnswer('C\'est PA qui cherche aussi Thibault.', event)">📱</div>
+    <div class="decoy" style="left:88%;top:53%;" onclick="wrongAnswer('Une étoile filante. Pas Thibault.', event)">⭐</div>
+    <!-- r6 -->
+    <div class="decoy" style="left:3%;top:66%;"  onclick="wrongAnswer('Un crabe de montagne. Ça n\'existe pas.', event)">🦞</div>
+    <div class="decoy" style="left:12%;top:70%;" onclick="wrongAnswer('Du vin rouge. Non.', event)">🍷</div>
+    <div class="decoy" style="left:21%;top:65%;" onclick="wrongAnswer('Un croissant. Toujours raté.', event)">🥐</div>
+    <div class="decoy" style="left:30%;top:69%;" onclick="wrongAnswer('La montagne. Thibault est plus petit.', event)">⛰️</div>
+    <div class="decoy" style="left:40%;top:66%;" onclick="wrongAnswer('Un câble de téléphérique. Pas Thibault.', event)">〰️</div>
+    <div class="decoy" style="left:50%;top:70%;" onclick="wrongAnswer('Champagne de consolation.', event)">🍾</div>
+    <div class="decoy" style="left:59%;top:65%;" onclick="wrongAnswer('C\'est Damien. Il réfléchit aux équinoxes.', event)">🤔</div>
+    <div class="decoy" style="left:68%;top:69%;" onclick="wrongAnswer('Un chouette oiseau. Toujours pas Thibault.', event)">🦉</div>
+    <div class="decoy" style="left:77%;top:66%;" onclick="wrongAnswer('Un kayak en montagne. Ça n\'a aucun sens.', event)">🛶</div>
+    <div class="decoy" style="left:87%;top:70%;" onclick="wrongAnswer('Un sac de sport. Pas Thibault.', event)">👜</div>
+    <div class="decoy" style="left:95%;top:65%;" onclick="wrongAnswer('Un dauphin en montagne. Encore moins logique.', event)">🐬</div>
+    <!-- r7 -->
+    <div class="decoy" style="left:5%;top:79%;"  onclick="wrongAnswer('Un renard. Rusé mais pas Thibault.', event)">🦊</div>
+    <div class="decoy" style="left:14%;top:83%;" onclick="wrongAnswer('Le Tricount version 2. Toujours en rouge.', event)">📋</div>
+    <div class="decoy" style="left:23%;top:78%;" onclick="wrongAnswer('Des chaussettes de ski mouillées.', event)">🧦</div>
+    <div class="decoy" style="left:32%;top:82%;" onclick="wrongAnswer('Un crabe. Encore.', event)">🦀</div>
+    <div class="decoy" style="left:41%;top:79%;" onclick="wrongAnswer('La photo que PA n\'a pas envoyée.', event)">🖼️</div>
+    <div class="decoy" style="left:50%;top:84%;" onclick="wrongAnswer('Un ballon. Pas Thibault.', event)">🎈</div>
+    <div class="decoy" style="left:59%;top:78%;" onclick="wrongAnswer('Un champignon. Attention en montagne.', event)">🍄</div>
+    <div class="decoy" style="left:68%;top:83%;" onclick="wrongAnswer('Un pingouin. Tropical.', event)">🐧</div>
+    <div class="decoy" style="left:77%;top:79%;" onclick="wrongAnswer('La galette de Laurent, encore.', event)">🫓</div>
+    <div class="decoy" style="left:86%;top:83%;" onclick="wrongAnswer('Un four à raclette. Très utile.', event)">🫕</div>
+    <div class="decoy" style="left:94%;top:78%;" onclick="wrongAnswer('Un alien. Thibault ? Non.', event)">👽</div>
+    <!-- r8 -->
+    <div class="decoy" style="left:8%;top:92%;"  onclick="wrongAnswer('Un croissant de consolation.', event)">🥐</div>
+    <div class="decoy" style="left:18%;top:89%;" onclick="wrongAnswer('Du chocolat. Pour se consoler.', event)">🍫</div>
+    <div class="decoy" style="left:28%;top:93%;" onclick="wrongAnswer('Un fantôme. Mais pas le bon.', event)">👻</div>
+    <div class="decoy" style="left:38%;top:89%;" onclick="wrongAnswer('Un escargot. Plus rapide que PA à envoyer ses photos.', event)">🐌</div>
+    <div class="decoy" style="left:49%;top:93%;" onclick="wrongAnswer('Un ballon de foot. Nico avait prévu un match.', event)">⚽</div>
+    <div class="decoy" style="left:59%;top:89%;" onclick="wrongAnswer('Un skateboard. En montagne. Pourquoi pas.', event)">🛹</div>
+    <div class="decoy" style="left:69%;top:92%;" onclick="wrongAnswer('C\'est un grimpeur. Pas Thibault.', event)">🧗</div>
+    <div class="decoy" style="left:79%;top:89%;" onclick="wrongAnswer('Un coffre au trésor. Sans Thibault dedans.', event)">📦</div>
+    <div class="decoy" style="left:89%;top:93%;" onclick="wrongAnswer('C\'est PA qui cherche aussi Thibault.', event)">📱</div>
   </div>
 
   <div id="thibault-found-banner" class="hidden">

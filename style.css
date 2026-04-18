@@ -40,7 +40,7 @@ body { background: var(--near-black); color: var(--white); font-family: 'Patrick
 @keyframes chairSlide { from{transform:translateX(-300px)} to{transform:translateX(110vw)} }
 @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
 @keyframes tiReveal { from{opacity:0;transform:scale(0.5) rotate(-10deg)} 70%{transform:scale(1.1) rotate(2deg)} to{opacity:1;transform:scale(1) rotate(0deg)} }
-@keyframes wrongPop { 0%{opacity:0;transform:translate(-50%,-50%) scale(0.4)} 20%{opacity:1;transform:translate(-50%,-50%) scale(1.05)} 70%{opacity:1} 100%{opacity:0;transform:translate(-50%,-50%) scale(0.9)} }
+@keyframes wrongPop { 0%{opacity:0;transform:translate(-50%,-110%) scale(0.4)} 15%{opacity:1;transform:translate(-50%,-110%) scale(1.05)} 70%{opacity:1;transform:translate(-50%,-120%) scale(1)} 100%{opacity:0;transform:translate(-50%,-140%) scale(0.9)} }
 
 /* UTILITIES */
 .hidden { display: none !important; }
@@ -240,12 +240,14 @@ body { background: var(--near-black); color: var(--white); font-family: 'Patrick
 /* ========== THIBAULT ========== */
 #thibault { background:var(--near-black); padding:2rem 0 0; min-height:80vh; }
 .thibault-instructions { text-align:center; font-family:'Patrick Hand'; font-size:1.2rem; color:rgba(255,255,255,.7); margin-bottom:1rem; padding:0 1rem; }
-.waldo-scene { position:relative; min-height:520px; overflow:hidden; background:repeating-conic-gradient(var(--orange) 0% 25%,var(--yellow) 0% 50%) 0 0/40px 40px; }
-.chaos-bg { position:absolute; inset:0; background:radial-gradient(circle at 20% 30%,rgba(255,105,180,.5) 0%,transparent 30%),radial-gradient(circle at 75% 65%,rgba(0,229,255,.5) 0%,transparent 25%),radial-gradient(circle at 50% 10%,rgba(57,255,20,.4) 0%,transparent 20%); }
-.thibault-target { position:absolute; font-size:1.6rem; cursor:pointer; z-index:5; opacity:.75; transform:rotate(15deg) scale(.9); transition:opacity .3s; user-select:none; }
-.thibault-target:hover { opacity:.9; }
-.decoy { position:absolute; font-size:1.4rem; cursor:pointer; z-index:4; opacity:.7; user-select:none; }
-.wrong-popup { position:fixed; top:50%; left:50%; background:var(--near-black); border:3px solid var(--orange); border-radius:12px; padding:1rem 2rem; font-family:'Patrick Hand'; font-size:1.2rem; color:var(--white); z-index:65; text-align:center; animation:wrongPop 2.5s ease forwards; pointer-events:none; max-width:300px; }
+.waldo-scene { position:relative; overflow:hidden; background-image:url('thibault-scene.jpg'); background-size:cover; background-position:center top; border:4px solid var(--near-black); border-radius:8px; max-width:900px; width:100%; margin:0 auto; aspect-ratio:1.83; min-height:400px; }
+.chaos-bg { position:absolute; inset:0; }
+.thibault-target { position:absolute; font-size:1.5rem; cursor:pointer; z-index:5; opacity:.65; transform:rotate(22deg) scale(.85); transition:opacity .3s; user-select:none; }
+.thibault-target:hover { opacity:.85; }
+.decoy { position:absolute; font-size:1.6rem; cursor:pointer; z-index:4; user-select:none; transition:transform .12s; filter:drop-shadow(0 1px 3px rgba(0,0,0,.7)); }
+.decoy:hover { transform:scale(1.25); }
+.wrong-popup { position:fixed; background:var(--near-black); border:3px solid red; border-radius:12px; padding:.75rem 1.5rem; font-family:'Patrick Hand'; font-size:1.1rem; color:var(--white); z-index:65; text-align:center; animation:wrongPop 2.8s ease forwards; pointer-events:none; max-width:260px; }
+.wrong-prefix { color:red; font-weight:bold; font-size:1.3rem; }
 #thibault-found-banner { background:linear-gradient(135deg,var(--neon-green),var(--cyan)); color:var(--near-black); font-family:'Bangers'; font-size:clamp(1.5rem,4vw,2.5rem); text-align:center; padding:1rem; letter-spacing:.1em; display:flex; justify-content:center; align-items:center; gap:2rem; flex-wrap:wrap; }
 
 /* ========== GALERIE PA ========== */

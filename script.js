@@ -48,11 +48,15 @@ function launchConfetti() {
   }
 }
 
-function wrongAnswer(msg) {
+function wrongAnswer(msg, evt) {
   document.querySelectorAll('.wrong-popup').forEach(p => p.remove());
   const pop = document.createElement('div');
   pop.className = 'wrong-popup';
-  pop.textContent = msg;
+  pop.innerHTML = '<span class="wrong-prefix">❌ PERDU !</span><br>' + msg;
+  if (evt) {
+    pop.style.left = evt.clientX + 'px';
+    pop.style.top  = evt.clientY + 'px';
+  }
   document.body.appendChild(pop);
   pop.addEventListener('animationend', () => pop.remove());
 }
@@ -431,11 +435,11 @@ function foundThibault() {
 function buildChaosBackground() {
   const chaos = document.querySelector('.chaos-bg');
   if (!chaos) return;
-  const items = ['🎿','⛷️','🏄','🍟','🌭','📊','🍹','💧','⛺','🏔️','🎉','🧀','🥖','🚣','🏕️','🤿','🌊','🦆','🐟','🏂','🍾','🥂','⛰️','🎿','🌭'];
-  for (let i = 0; i < 55; i++) {
+  const items = ['🌲','🌿','🍀','🌸','☁️','⭐','💧','✨','🌺','🌾','🍃','❄️'];
+  for (let i = 0; i < 35; i++) {
     const el = document.createElement('span');
     el.textContent = items[Math.floor(Math.random() * items.length)];
-    el.style.cssText = `position:absolute;left:${Math.random()*95}%;top:${Math.random()*90}%;font-size:${0.8+Math.random()*2.2}rem;opacity:${0.3+Math.random()*0.55};transform:rotate(${Math.random()*360}deg);pointer-events:none;`;
+    el.style.cssText = `position:absolute;left:${Math.random()*97}%;top:${Math.random()*95}%;font-size:${0.6+Math.random()*0.7}rem;opacity:${0.08+Math.random()*0.15};transform:rotate(${Math.random()*360}deg);pointer-events:none;`;
     chaos.appendChild(el);
   }
 }
