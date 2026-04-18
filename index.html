@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les Marginaux — Le Site Officiel (Wallah)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================================================================
+     SECTION 1 : HEADER
+     ================================================================ -->
+<header id="header">
+  <div class="header-logo-wrap">
+    <img src="logo.jpg" alt="Logo Les Marginaux" id="header-logo">
+    <div class="header-sub-wrap">
+      <p class="header-sub">Seb · Nico · Damien · PA · Laurent · Thibault</p>
+      <p class="header-hint">(survole pour les trouver)</p>
+    </div>
+  </div>
+
+  <!-- Hover layer : SVG échangeur + caricatures emoji -->
+  <div class="header-hover-layer" id="header-hover-layer" aria-hidden="true">
+    <svg id="echangeur-svg" viewBox="0 0 900 400" preserveAspectRatio="none">
+      <path class="road-path" d="M0,200 Q225,80 450,200 T900,200"/>
+      <path class="road-path ramp1" d="M200,200 Q350,30 450,90"/>
+      <path class="road-path ramp2" d="M450,90 Q560,140 700,200"/>
+      <path class="road-path ramp1" d="M0,300 Q200,250 400,120"/>
+      <path class="road-path ramp2" d="M500,100 Q700,180 900,100"/>
+    </svg>
+    <div class="cartoon-face" data-name="seb">😎</div>
+    <div class="cartoon-face" data-name="nico">🤓</div>
+    <div class="cartoon-face" data-name="damien">🧔</div>
+    <div class="cartoon-face" data-name="pa">📷</div>
+    <div class="cartoon-face" data-name="laurent">🥞</div>
+    <div class="cartoon-face" data-name="thibault">👻</div>
+  </div>
+</header>
+
+<!-- ================================================================
+     SECTION 2 : TOURMALET HIVER
+     ================================================================ -->
+<section id="tourmalet">
+  <h2 class="tourmalet-title">❄️ TOURMALET — HIVER ❄️</h2>
+
+  <!-- 2a : Scène télésiège -->
+  <div class="chairlift-scene">
+    <!-- SVG dessiné : câble + pylônes -->
+    <svg class="chairlift-svg" viewBox="0 0 900 300" preserveAspectRatio="none">
+      <!-- Pylône gauche -->
+      <rect class="post" x="140" y="80" width="14" height="200"/>
+      <!-- Pylône milieu -->
+      <rect class="post" x="520" y="65" width="14" height="215"/>
+      <!-- Câble -->
+      <line class="cable" x1="0" y1="100" x2="900" y2="75"/>
+      <!-- Fils chaises -->
+      <line class="chair-wire" x1="240" y1="93" x2="240" y2="130"/>
+      <line class="chair-wire" x1="660" y1="80" x2="660" y2="117"/>
+      <!-- Chaises -->
+      <rect class="chair-seat" x="220" y="130" width="40" height="16" rx="2"/>
+      <rect class="chair-seat" x="640" y="117" width="40" height="16" rx="2"/>
+    </svg>
+
+    <!-- Photos animées sur les chaises (5 chaises, espacement 4s) -->
+    <div class="photo-on-chair" style="left:-300px;animation-delay:0s;">
+      <img src="hiver-selfie.jpg" alt="Selfie Tourmalet" loading="lazy">
+    </div>
+    <div class="photo-on-chair" style="left:-300px;animation-delay:-4s;">
+      <img src="hiver-piste.jpg" alt="Pose piste" loading="lazy">
+    </div>
+    <div class="photo-on-chair" style="left:-300px;animation-delay:-8s;">
+      <img src="hiver-sommet.jpg" alt="Sommet" loading="lazy">
+    </div>
+    <div class="photo-on-chair" style="left:-300px;animation-delay:-12s;">
+      <img src="hiver-biere.jpg" alt="Bière en terrasse" loading="lazy">
+    </div>
+    <div class="photo-on-chair" style="left:-300px;animation-delay:-16s;">
+      <img src="hiver-selfie-2.jpg" alt="Selfie piste" loading="lazy">
+    </div>
+  </div>
+
+  <!-- Bulle BD avec typewriter -->
+  <div class="speech-bubble" id="tourmalet-bubble">
+    <span id="tourmalet-typer"></span>
+  </div>
+
+  <p style="text-align:center;font-family:'Patrick Hand';color:rgba(0,0,0,.6);font-size:.9rem;margin-bottom:1rem;">— Guide local, Pic du Midi de Bigorre, 2025</p>
+
+  <!-- 2b : Menu saucisse-frite -->
+  <div class="menu-card">
+    <div class="menu-card-header">
+      <span class="menu-emoji">🌭</span>
+      <h3>ÉTAPE DU BERGER</h3>
+      <span class="menu-emoji">🍟</span>
+    </div>
+    <div class="menu-card-body">
+      <div class="menu-item"><span>Saucisse-frite maison</span><span class="price">8€</span></div>
+      <div class="menu-item"><span>Saucisse-frite maison x2</span><span class="price">14€</span></div>
+      <div class="menu-item"><span>Saucisse-frite + boisson</span><span class="price">11€</span></div>
+      <p class="menu-sub">★ Servi avec mayonnaise et Ketchup ★</p>
+      <p class="menu-macron">🇫🇷 Approuvé par Macron <em>(for sure)</em></p>
+      <img src="hiver-berger.jpg" alt="Saucisse-frites à l'Étape du Berger" class="menu-photo" loading="lazy">
+    </div>
+  </div>
+
+  <!-- Nathalie des Thermes -->
+  <div class="nathalie-section">
+    <img class="nathalie-manga" src="nathalie-manga.jpg" alt="Nathalie des Thermes">
+    <div class="nathalie-bubble">
+      <p>"Le Tourmalet, j'y venais déjà avant vous. Les thermes de Bagnères-de-Bigorre, c'est la vraie expérience pyrénéenne."</p>
+      <p class="nathalie-sig">— Nathalie, 52 ans<br>Thermes de Bagnères-de-Bigorre</p>
+    </div>
+  </div>
+
+  <!-- Photo chalet après-ski -->
+  <div style="max-width:600px;margin:0 auto 1.5rem;border:4px solid rgba(255,255,255,.2);border-radius:8px;overflow:hidden;text-align:center;">
+    <img src="hiver-chalet.jpg" alt="Après-ski au chalet" loading="lazy" style="width:100%;height:280px;object-fit:cover;object-position:center top;display:block;">
+    <p style="background:rgba(0,0,0,.8);padding:.5rem;font-family:'Patrick Hand';font-size:.9rem;color:rgba(255,255,255,.7);">Le debrief technique du lendemain. Très technique.</p>
+  </div>
+
+  <!-- 2c : Matrix Planning de Nico -->
+  <div class="matrix-section">
+    <canvas id="matrix-canvas"></canvas>
+    <div class="matrix-content">
+      <h3 class="matrix-title">🤓 PLANNING NICO — VERSION 12.3 🤓</h3>
+      <p style="font-family:'Share Tech Mono';color:#0a0;text-align:center;font-size:.8rem;margin-bottom:1rem;">// Planification obsessionnelle depuis 2019 — dernière mise à jour : hier à 2h37</p>
+
+      <!-- Grille Excel fictive -->
+      <div class="excel-grid">
+        <div class="cell hdr">DATE</div>
+        <div class="cell hdr">ACTIVITÉ</div>
+        <div class="cell hdr">MÉTÉO PRÉVUE</div>
+        <div class="cell hdr">MÉTÉO RÉELLE</div>
+        <div class="cell">13/03</div><div class="cell">Ski Tourmalet</div><div class="cell grn">☀️ Optimal</div><div class="cell red">❄️ Tempête</div>
+        <div class="cell">14/03</div><div class="cell">Télésiège A</div><div class="cell grn">☀️ Dégagé</div><div class="cell yel">🌫️ Brouillard</div>
+        <div class="cell">15/03</div><div class="cell">Sommet 2877m</div><div class="cell grn">☀️ Parfait</div><div class="cell red">🌬️ Vent 80km/h</div>
+        <div class="cell">16/03</div><div class="cell">Descente VTT</div><div class="cell grn">☀️ Sec</div><div class="cell red">🌧️ Pluie</div>
+        <div class="cell">Bilan</div><div class="cell">4 activités</div><div class="cell grn">4/4 réussies</div><div class="cell red">1/4 réussie</div>
+      </div>
+
+      <!-- Graphique à barres -->
+      <div class="bar-chart">
+        <div class="bar-wrap">
+          <div class="bar" style="--clr:var(--neon-green);" data-h="95%"></div>
+          <div class="bar-label">Plan Nico</div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar" style="--clr:var(--pink);" data-h="30%"></div>
+          <div class="bar-label">Réalité</div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar" style="--clr:var(--cyan);" data-h="100%"></div>
+          <div class="bar-label">Fun quand même</div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar" style="--clr:var(--yellow);" data-h="85%"></div>
+          <div class="bar-label">Saucisses</div>
+        </div>
+      </div>
+
+      <!-- Compte à rebours prochaine saison -->
+      <p style="font-family:'Share Tech Mono';color:#0a0;text-align:center;font-size:.75rem;margin-bottom:.5rem;">⏱ DÉCOMPTE PRÉCIS — PROCHAINE OUVERTURE DES PISTES :</p>
+      <div class="nico-cdown" id="nico-cdown-display">
+        <span class="n-d">---</span>j &nbsp;
+        <span class="n-h">--</span>h &nbsp;
+        <span class="n-m">--</span>m &nbsp;
+        <span class="n-s">--</span>s &nbsp;
+        <span class="n-ms">---</span>ms
+      </div>
+    </div>
+  </div>
+
+  <!-- 2d : Validation Tricount -->
+  <div class="tricount-section">
+    <div class="tricount-card">
+      <h3>[ VALIDATION DES COMPTES TRICOUNT ]</h3>
+      <div class="loading-bar-wrap">
+        <div class="loading-bar-fill" id="tricount-bar"></div>
+        <span class="loading-bar-label">Comptes en cours de validation...</span>
+      </div>
+      <div class="tricount-status" id="tricount-status">Initialisation...</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     SECTION 3 : LES EXPERTS DU GROUPE
+     ================================================================ -->
+<section id="experts">
+  <h2 class="section-title">⚡ LES EXPERTS ⚡</h2>
+<div style="max-width:700px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2rem;padding:0 1rem 3rem;">
+    <div style="background:rgba(255,107,0,.1);border:2px solid var(--orange);border-radius:16px;padding:1.5rem;text-align:center;">
+      <div style="font-size:3rem;margin-bottom:.5rem;">🧔</div>
+      <h3 style="font-family:'Bangers';font-size:1.8rem;color:var(--orange);margin-bottom:.5rem;">DAMIEN</h3>
+      <p style="font-family:'Patrick Hand';font-size:1rem;line-height:1.6;">Expert en calcul astronomique de l'ouverture des pistes. Précision : ±3 ms. Voir le widget à droite →</p>
+    </div>
+    <div style="background:rgba(57,255,20,.1);border:2px solid var(--neon-green);border-radius:16px;padding:1.5rem;text-align:center;">
+      <div style="font-size:3rem;margin-bottom:.5rem;">🤓</div>
+      <h3 style="font-family:'Bangers';font-size:1.8rem;color:var(--neon-green);margin-bottom:.5rem;">NICO</h3>
+      <p style="font-family:'Patrick Hand';font-size:1rem;line-height:1.6;">Nutritionniste certifié par lui-même. Docteur es-légumes. Attend 10 secondes sans bouger pour recevoir ses conseils.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     SECTION 4 : BIARRITZ & COLLIOURE — ÉTÉ
+     ================================================================ -->
+<section id="ete">
+  <div class="ete-bg" style="background-image:url('ete-plage.jpg');"></div>
+  <div class="ete-content">
+    <h2 class="section-title">☀️ BIARRITZ & COLLIOURE — ÉTÉ ☀️</h2>
+
+    <!-- Kayak + Laurent qui coule -->
+    <div class="kayak-scene">
+      <img src="ete-kayak.jpg" alt="Kayak Biarritz" loading="lazy">
+      <div class="drown-overlay" aria-hidden="true">
+        <div class="drown-text">Glou<br>Glou<br>Glou...</div>
+        <div class="drown-bubbles">
+          <span>○</span><span>°</span><span>○</span>
+        </div>
+      </div>
+      <div class="kayak-caption">LAURENT — SURVIVANT DE L'ATLANTIQUE (LARGEUR TOTALE : 2M)</div>
+    </div>
+
+    <!-- Ti-punch -->
+    <div class="tipunch-section">
+      <button class="tipunch-btn" id="tipunch-btn">🍹 PRENDRE UN TI-PUNCH CHEZ NICO</button>
+      <div class="glass-wrap hidden" id="tipunch-glass">
+        <div class="glass-shape">
+          <div class="rum-fill" id="rum-fill"></div>
+          <div class="lime-slice">🍋</div>
+        </div>
+        <p class="tipunch-reveal-text">C'EST ÇA LES PYRÉNÉES...<br>NAN C'EST LE TI-PUNCH.</p>
+      </div>
+    </div>
+
+    <!-- Photo cocktails -->
+    <div class="cocktail-photo">
+      <img src="ete-tipunch.jpg" alt="Préparation Ti-punch" loading="lazy">
+    </div>
+    <p style="text-align:center;font-family:'Patrick Hand';font-style:italic;color:rgba(255,255,255,.5);font-size:.9rem;margin-top:.5rem;">Nico en train de préparer scientifiquement le ti-punch.</p>
+
+    <!-- Nathalie des Thermes -->
+
+    <!-- Photo plage -->
+    <div style="max-width:500px;margin:1.5rem auto;border:3px solid var(--cyan);border-radius:8px;overflow:hidden;transform:rotate(-1deg);">
+      <img src="ete-plage.jpg" alt="Plage" loading="lazy" style="width:100%;height:240px;object-fit:cover;object-position:center top;display:block;">
+      <p style="background:rgba(0,0,0,.9);padding:.5rem;text-align:center;font-family:'Patrick Hand';font-size:.9rem;color:var(--cyan);">La plage. Là où PA devait prendre des photos.</p>
+    </div>
+
+    <!-- Balcon vue mer -->
+    <div style="max-width:500px;margin:1.5rem auto;border:3px solid var(--pink);border-radius:8px;overflow:hidden;transform:rotate(1deg);">
+      <img src="ete-balcon.jpg" alt="Balcon vue mer" loading="lazy" style="width:100%;height:220px;object-fit:cover;object-position:center;display:block;">
+      <p style="background:rgba(0,0,0,.9);padding:.5rem;text-align:center;font-family:'Patrick Hand';font-size:.9rem;color:var(--pink);">Biarritz. Vue sur la mer. Le boudin gonflable dans la chambre est dans le plan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     SECTION 5 : EXPLOITS
+     ================================================================ -->
+<section id="exploits">
+  <h2 class="section-title">💥 LES EXPLOITS 💥</h2>
+
+  <!-- Canyoning plein écran -->
+  <div class="exploit-canyoning" id="canyoning-panel">
+    <img src="ete-canyoning.jpg" alt="Canyoning" class="exploit-bg-img" loading="lazy">
+    <div class="exploit-overlay" id="splash-overlay" aria-hidden="true">
+      <div class="splash-text">SPLASH!</div>
+      <div class="exploit-subtitle">LES SAUTS DE LA MORT DES MARGINAUX</div>
+    </div>
+  </div>
+
+  <!-- Rafting -->
+  <div class="exploit-rafting">
+    <img src="ete-rafting.jpg" alt="Rafting" loading="lazy">
+    <div class="exploit-label">RAFTING — SURVIE À L'ÉTAT PUR</div>
+  </div>
+
+  <!-- VTT électrique -->
+  <div class="exploit-vtt">
+    <h3 class="exploit-title">🚵 VTT ÉLECTRIQUE — AVANT / APRÈS</h3>
+    <div class="vtt-rider-wrap before-state">
+      <div class="vtt-figure">🚵</div>
+      <div class="vtt-caption">"C'est easy les gars, je maîtrise"</div>
+      <div class="vtt-caption" style="font-size:.85rem;opacity:.6;">— PA & Nico, 30 secondes avant</div>
+    </div>
+    <div class="vtt-rider-wrap after-state hidden">
+      <div class="vtt-figure">💥🤕</div>
+      <div class="vtt-dust">💨💨💨</div>
+      <div class="vtt-caption">*silence radio*</div>
+      <div class="vtt-caption" style="font-size:.85rem;opacity:.6;">(les téléphones ne filmaient plus)</div>
+    </div>
+  </div>
+
+  <!-- Galette vs Crêpe -->
+  <div class="galette-duel">
+    <h3 style="font-family:'Bangers';font-size:clamp(2rem,5vw,3.5rem);text-align:center;color:var(--yellow);letter-spacing:.05em;padding:1rem 0 .5rem;text-shadow:2px 2px 0 rgba(0,0,0,.5);">LE GRAND DÉBAT — 2025</h3>
+    <div class="vs-screen">
+      <!-- Laurent -->
+      <div class="fighter fighter-left">
+        <div class="health-bar-wrap">
+          <div class="health-bar" id="health-left" style="width:100%;background:var(--neon-green);"></div>
+        </div>
+        <div class="fighter-portrait">
+          <img src="galette.jpg" alt="Laurent et sa galette" loading="lazy">
+        </div>
+        <div class="fighter-quote">C'EST UNE GALETTE,<br>WALLAH FRÈRE</div>
+        <div class="fighter-name">LAURENT</div>
+      </div>
+
+      <!-- VS -->
+      <div class="vs-center">
+        <div class="vs-text">VS</div>
+        <div class="vs-subtext">GALETTE<br>vs<br>CRÊPE</div>
+      </div>
+
+      <!-- Tout le monde -->
+      <div class="fighter fighter-right">
+        <div class="health-bar-wrap">
+          <div class="health-bar" id="health-right" style="width:100%;background:var(--pink);"></div>
+        </div>
+        <div class="fighter-portrait">
+          <div class="shocked-group">😱😨😤🤦😅</div>
+        </div>
+        <div class="fighter-quote">C'EST UNE CRÊPE,<br>NAN ?</div>
+        <div class="fighter-name">TOUT LE MONDE</div>
+      </div>
+    </div>
+    <button class="fight-btn" id="fight-btn">⚔️ ENGAGER LE DÉBAT</button>
+  </div>
+</section>
+
+<!-- ================================================================
+     SECTION 6 : OÙ EST THIBAULT ?
+     ================================================================ -->
+<section id="thibault">
+  <h2 class="section-title">👻 OÙ EST THIBAULT ? 👻</h2>
+  <p class="thibault-instructions">Trouvez Thibault caché quelque part dans ce chaos... si vous pouvez.</p>
+
+  <div class="waldo-scene" id="waldo-scene">
+    <div class="chaos-bg"></div>
+
+    <!-- La cible secrète -->
+    <div class="thibault-target" id="thibault-target"
+         style="left:34%;top:58%;"
+         onclick="foundThibault()"
+         role="button" tabindex="0" aria-label="Cliquez ici si c'est Thibault">
+      👻
+    </div>
+
+    <!-- Fausses cibles / leurres -->
+    <div class="decoy" style="left:5%;top:15%;"  onclick="wrongAnswer('Non, c\'est la saucisse du Tourmalet.')">🌭</div>
+    <div class="decoy" style="left:78%;top:8%;"  onclick="wrongAnswer('C\'est le planning v12.3 de Nico.')">📊</div>
+    <div class="decoy" style="left:22%;top:82%;" onclick="wrongAnswer('C\'est le Ti-punch de Nico. Pas Thibault.')">🍹</div>
+    <div class="decoy" style="left:88%;top:55%;" onclick="wrongAnswer('C\'est Damien qui vérifie les équinoxes.')">🧔</div>
+    <div class="decoy" style="left:42%;top:25%;" onclick="wrongAnswer('C\'est la galette de Laurent. AKA crêpe.')">🥞</div>
+    <div class="decoy" style="left:60%;top:88%;" onclick="wrongAnswer('C\'est PA... en train de ne pas envoyer ses photos.')">📷</div>
+    <div class="decoy" style="left:12%;top:48%;" onclick="wrongAnswer('C\'est Seb. Méfie-toi.')">😎</div>
+    <div class="decoy" style="left:55%;top:45%;" onclick="wrongAnswer('Non. Mais tu es courageux.')">⛷️</div>
+    <div class="decoy" style="left:30%;top:12%;" onclick="wrongAnswer('C\'est le télésiège. Thibault n\'est pas dessus.')">🏔️</div>
+    <div class="decoy" style="left:70%;top:72%;" onclick="wrongAnswer('Un kayak. Laurent y a failli se noyer.')">🚣</div>
+  </div>
+
+  <div id="thibault-found-banner" class="hidden">
+    <span>🎉 THIBAULT TROUVÉ !! 🎉</span>
+    <span>Repositionné : <span id="repo-count">0</span> fois</span>
+  </div>
+</section>
+
+<!-- ================================================================
+     SECTION 7 : GALERIE PA
+     ================================================================ -->
+<section id="galerie-pa">
+  <div class="galerie-pa-badge">★ EXCLUSIVITÉ MONDIALE ★</div>
+  <a href="gallery-pa.html" target="_blank" class="galerie-pa-link">
+    <span class="galerie-pa-icon">📷</span>
+    <span>EN EXCLUSIVITÉ,<br>LES PHOTOS DE NOS AVENTURES<br>PAR PA<br><em style="font-size:.75em;">(SI, J'TE JURE WALLAH)</em></span>
+  </a>
+  <p class="galerie-pa-sub">Cliquez si vous avez le courage et la patience.</p>
+</section>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer>
+  <p><strong>Les Marginaux</strong> — Seb · Nico · Damien · PA · Laurent · Thibault</p>
+  <p style="margin-top:.5rem;">Depuis 2019 · Pyrénées · Biarritz · Collioure · Et autres endroits où l'on s'est perdus</p>
+  <p style="margin-top:.5rem;font-size:.75rem;">PA finira par envoyer les photos. Un jour. Probablement.</p>
+</footer>
+
+<!-- ================================================================
+     GLOBAL OVERLAYS
+     ================================================================ -->
+
+<!-- Modal Tricount Approuvé -->
+<div id="tricount-modal" class="modal hidden">
+  <div class="modal-inner tricount-approve">
+    <div class="approve-text">APPROUVÉ SUR TRICOUNT</div>
+    <div class="approve-check">✓</div>
+    <p style="font-family:'Share Tech Mono';color:var(--neon-green);font-size:.85rem;">Tous les comptes sont soldés.<br>PA doit encore 47,50€.</p>
+    <button onclick="closeModal('tricount-modal')">OK COMPRIS</button>
+  </div>
+</div>
+
+<!-- Modal Damien Équinoxes -->
+<div id="damien-popup" class="modal hidden">
+  <div class="modal-inner damien-modal">
+    <h3>🔬 EXPLICATION SCIENTIFIQUE</h3>
+    <div id="damien-popup-body"></div>
+    <p style="font-size:.8rem;color:rgba(255,255,255,.5);">★ Auto-certifié. Non reconnu par le CNRS réel.</p>
+    <button onclick="closeModal('damien-popup')">Fascinant, merci Damien</button>
+  </div>
+</div>
+
+<!-- Popup Nico légumes (inactivité 10s) -->
+<div id="nico-vegetal-popup" class="popup hidden">
+  <div class="vegetal-inner">
+    <div class="vegetal-head">
+      <span class="vegetal-star">★</span> CONSEIL SANTÉ DE NICO <span class="vegetal-star">★</span>
+    </div>
+    <div class="vegetal-cartoon">🤓</div>
+    <div class="vegetal-text">NICO VOUS CONSEILLE DE CONSOMMER<br>5 FRUITS ET LÉGUMES PAR JOUR</div>
+    <div class="vegetal-icons">🍎 🥦 🍋 🥕 🍇</div>
+    <p class="vegetal-footer">Approuvé par l'Institut National de la Santé de Nico™ (2025)<br><em>Même s'il a été forcé d'en manger lui-même.</em></p>
+    <button onclick="closePopup('nico-vegetal-popup')">J'ai compris, Nico</button>
+  </div>
+</div>
+
+<!-- Damien sticky widget -->
+<aside id="damien-countdown" onclick="openModal('damien-popup')" title="Cliquez pour l'explication scientifique">
+  <div class="damien-header">DÉCOMPTE DE DAMIEN</div>
+  <div class="damien-sub">Prochaine ouverture des pistes</div>
+  <div id="damien-time-display">...</div>
+  <div class="damien-hint">Cliquer pour + d'infos</div>
+</aside>
+
+<!-- Confetti container -->
+<div id="confetti-container"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

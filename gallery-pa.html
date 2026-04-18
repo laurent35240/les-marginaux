@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photos de PA — CHARGEMENT EN COURS...</title>
+  <style>
+    @keyframes blink    { 0%,100%{visibility:visible} 50%{visibility:hidden} }
+    @keyframes marquee  { from{transform:translateX(100vw)} to{transform:translateX(-100%)} }
+    @keyframes twinkle  { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.2;transform:scale(.6)} }
+    @keyframes rainbow  { 0%{border-color:red} 16%{border-color:orange} 33%{border-color:yellow} 50%{border-color:lime} 66%{border-color:cyan} 83%{border-color:violet} 100%{border-color:red} }
+    @keyframes spin     { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+    @keyframes glitch   { 0%,95%,100%{transform:none;opacity:1} 96%{transform:translate(4px,-2px) skewX(2deg);opacity:.8} 97%{transform:translate(-4px,2px) skewX(-2deg);opacity:.9} 98%{transform:translate(2px,4px);opacity:.8} }
+
+    * { box-sizing:border-box; margin:0; padding:0; }
+
+    body {
+      background: #000080;
+      color: lime;
+      font-family: 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    #starfield { position:fixed; inset:0; pointer-events:none; z-index:0; }
+
+    .page-wrap {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+
+    /* Marquee */
+    .marquee-strip { background:#000; border-top:3px solid lime; border-bottom:3px solid lime; padding:.3rem 0; overflow:hidden; width:100%; position:fixed; top:0; left:0; z-index:20; }
+    .marquee-text  { display:inline-block; white-space:nowrap; font-size:.85rem; color:yellow; animation:marquee 10s linear infinite; }
+
+    /* Titre WordArt */
+    .wordart {
+      font-size: clamp(2rem,8vw,4rem);
+      font-weight: bold;
+      background: linear-gradient(180deg, #fff 0%, #ffff00 40%, #ff6600 80%, #ff0000 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      filter: drop-shadow(3px 3px 0 rgba(0,0,0,.8));
+      font-style: italic;
+      animation: glitch 4s linear infinite;
+    }
+
+    /* Caméra animée */
+    .camera-icon { font-size: 4rem; animation: spin 3s linear infinite; display:inline-block; }
+
+    /* Texte clignotant principal */
+    .blink-main {
+      font-size: clamp(1.2rem,4vw,2.2rem);
+      color: lime;
+      animation: blink .6s step-start infinite;
+      letter-spacing: .1em;
+      font-weight: bold;
+    }
+
+    /* Box centrale */
+    .loading-box {
+      background: #000;
+      border: 4px solid lime;
+      animation: rainbow 2s linear infinite;
+      padding: 1.5rem 2rem;
+      max-width: 560px;
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    /* Barre de progression */
+    .progress-outer {
+      background: #003;
+      border: 3px inset #0f0;
+      height: 36px;
+      position: relative;
+      margin: .75rem 0;
+      overflow: hidden;
+    }
+    .progress-fill {
+      background: linear-gradient(90deg, lime 0%, #00ff80 50%, lime 100%);
+      height: 100%;
+      width: 0%;
+      transition: width .5s ease;
+      box-shadow: 0 0 10px lime;
+      position: relative;
+    }
+    .progress-fill::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(90deg, transparent 0px, rgba(255,255,255,.15) 1px, transparent 2px, transparent 10px);
+    }
+    .progress-pct { font-size:1rem; color:lime; margin-top:.25rem; font-weight:bold; }
+    .status-msg   { font-size:.85rem; color:#0f0; min-height:1.5em; font-style:italic; margin:.5rem 0; }
+
+    /* Boîte joke */
+    .joke-box {
+      background: #000033;
+      border: 2px dashed red;
+      padding: 1rem;
+      max-width: 500px;
+      width: 100%;
+      font-size:.9rem;
+      line-height:1.8;
+    }
+    .joke-box .warn { color:red; animation:blink .5s step-start infinite; font-weight:bold; }
+    .joke-box strong { color:yellow; }
+
+    /* Bouton rétro */
+    .retro-btn {
+      background: linear-gradient(180deg, #c0c0c0 0%, #808080 100%);
+      color: #000;
+      border: 3px outset #fff;
+      padding: .6rem 1.5rem;
+      font-family: 'Comic Sans MS', cursive;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      letter-spacing: .05em;
+      transition: border .1s;
+    }
+    .retro-btn:active { border-style: inset; transform: translate(1px,1px); }
+
+    /* Spinner & hit counter */
+    .spinner { font-size:2.5rem; display:inline-block; animation:spin 1s linear infinite; }
+    .hit-counter { font-size:.75rem; color:#888; font-family:'Courier New',monospace; }
+
+    /* Bouton retour */
+    .back-link { color:cyan; font-size:.85rem; text-decoration:underline; cursor:pointer; }
+  </style>
+</head>
+<body>
+
+<div id="starfield"></div>
+
+<!-- Marquee fixe en haut -->
+<div class="marquee-strip">
+  <span class="marquee-text">★ CHARGEMENT EN COURS ★ MERCI DE PATIENTER ★ PA ARRIVE... ★ CHARGEMENT EN COURS ★ MERCI DE PATIENTER ★ PA ARRIVE... ★</span>
+</div>
+
+<div class="page-wrap" style="margin-top:2rem;">
+
+  <div class="camera-icon">📷</div>
+
+  <h1 class="wordart">GALERIE DE PA</h1>
+
+  <p class="blink-main">CHHHAAAARRRGGGEEEEMMMEEENNNTTT...</p>
+
+  <div class="loading-box">
+    <p style="color:yellow;font-weight:bold;margin-bottom:.75rem;letter-spacing:.05em;">[ CHARGEMENT DES PHOTOS EN COURS ]</p>
+    <div class="progress-outer">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+    <div class="progress-pct" id="progress-pct">0%</div>
+    <div class="status-msg" id="status-msg">Connexion au serveur de PA...</div>
+    <button class="retro-btn" onclick="forceLoad()">⚡ FORCER LE CHARGEMENT ⚡</button>
+  </div>
+
+  <div class="joke-box">
+    <p class="warn">⚠️ IMPORTANT ⚠️</p>
+    <p>PA a dit qu'il les enverrait <strong>"la semaine prochaine"</strong>...</p>
+    <p>en <strong>2021</strong>.</p>
+    <p style="margin-top:.5rem;color:#aaa;font-size:.8rem;">(le bouton "Forcer" ne fait que relancer la barre)</p>
+  </div>
+
+  <div class="spinner">⏳</div>
+
+  <div class="hit-counter">
+    Visiteurs depuis 2021 : <span id="hit-count">004269</span>
+  </div>
+
+  <p class="back-link" onclick="window.close()">← Retourner au site (les vraies photos)</p>
+
+</div>
+
+<script>
+  // Starfield
+  (function() {
+    const sf = document.getElementById('starfield');
+    for (let i = 0; i < 120; i++) {
+      const s = document.createElement('div');
+      const sz = 1 + Math.random() * 2.5;
+      s.style.cssText = `
+        position:fixed;
+        left:${Math.random()*100}vw;
+        top:${Math.random()*100}vh;
+        width:${sz}px;height:${sz}px;
+        background:white;border-radius:50%;
+        animation:twinkle ${1+Math.random()*3}s ease-in-out infinite;
+        animation-delay:${Math.random()*3}s;
+      `;
+      sf.appendChild(s);
+    }
+  })();
+
+  // Progress stall logic
+  const fill = document.getElementById('progress-fill');
+  const pctEl = document.getElementById('progress-pct');
+  const statusEl = document.getElementById('status-msg');
+
+  const checkpoints = [
+    [500,  2,  "Connexion au serveur de PA..."],
+    [400,  8,  "Authentification... (PA a oublié son mot de passe)"],
+    [600,  15, "Téléchargement de la photo 1/347..."],
+    [350,  23, "PA est occupé sur WhatsApp..."],
+    [700,  31, "Chargement des métadonnées EXIF..."],
+    [500,  40, "PA est en train de sélectionner les meilleures photos..."],
+    [600,  48, "Optimisation des images..."],
+    [800,  55, "La connexion de PA est lente... très lente..."],
+    [400,  61, "Retry tentative 1/47..."],
+    [900,  67, "Retry tentative 23/47..."],
+    [700,  72, "PA dit : 'c\'est bientôt fini, patience'"],
+    [1000, 76, "Retry tentative 47/47... (dernier espoir)"],
+    [1200, 80, "Erreur 404: motivation de PA introuvable"],
+    [1500, 83, "Reconnexion forcée..."],
+    [1800, 86, "Presque là..."],
+    [2500, 88, "Presque là... (toujours)"],
+    [3000, 89, "89%... depuis un moment"],
+    [4000, 90, "90%... (record personnel)"],
+  ];
+
+  let cpIdx = 0;
+
+  function updateStatus(msg) {
+    statusEl.textContent = msg;
+  }
+
+  function advanceProgress() {
+    if (cpIdx >= checkpoints.length) {
+      // Oscillate forever between 89 and 91
+      const v = 89 + Math.round(Math.random() * 2);
+      fill.style.width = v + '%';
+      pctEl.textContent = v + '%';
+      const stuck = [
+        "97%... (depuis 47 minutes)",
+        "PA dit : 'ça charge chez moi'",
+        "Tentative de reconnexion...",
+        "Serveur de PA introuvable",
+        "PA a vu le message mais n'a pas répondu",
+        "Timeout... encore",
+        "Peut-être demain ?",
+      ];
+      updateStatus(stuck[Math.floor(Math.random() * stuck.length)]);
+      setTimeout(advanceProgress, 8000 + Math.random() * 12000);
+      return;
+    }
+    const [delay, target, msg] = checkpoints[cpIdx++];
+    setTimeout(() => {
+      fill.style.width = target + '%';
+      pctEl.textContent = target + '%';
+      updateStatus(msg);
+      advanceProgress();
+    }, delay);
+  }
+
+  advanceProgress();
+
+  // Force button resets everything
+  function forceLoad() {
+    cpIdx = 0;
+    fill.style.transition = 'none';
+    fill.style.width = '0%';
+    pctEl.textContent = '0%';
+    updateStatus("Reconnexion forcée... (bonne chance)");
+    setTimeout(() => {
+      fill.style.transition = 'width .5s ease';
+      advanceProgress();
+    }, 600);
+  }
+
+  // Fake hit counter
+  let hits = 4269;
+  setInterval(() => {
+    hits++;
+    document.getElementById('hit-count').textContent = String(hits).padStart(6, '0');
+  }, 3700);
+</script>
+</body>
+</html>
