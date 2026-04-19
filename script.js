@@ -54,7 +54,9 @@ function wrongAnswer(msg, evt) {
   pop.className = 'wrong-popup';
   pop.innerHTML = '<span class="wrong-prefix">❌ PERDU !</span><br>' + msg;
   if (evt) {
-    pop.style.left = evt.clientX + 'px';
+    const halfW = 135; // demi-largeur max du popup (max-width 260px / 2 + marge)
+    const safeX = Math.max(halfW, Math.min(evt.clientX, window.innerWidth - halfW));
+    pop.style.left = safeX + 'px';
     pop.style.top  = evt.clientY + 'px';
   }
   document.body.appendChild(pop);
