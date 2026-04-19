@@ -434,6 +434,83 @@ function foundThibault() {
   }, 2200);
 }
 
+// ===== DAMIEN VOITURE ÉLECTRIQUE =====
+
+let _carTimer = null;
+
+function showDamienCar() {
+  const modal = document.getElementById('damien-car-modal');
+  if (!modal) return;
+  modal.classList.remove('hidden');
+  runDamienCarCharge();
+}
+
+function closeDamienCar() {
+  clearTimeout(_carTimer);
+  document.getElementById('damien-car-modal').classList.add('hidden');
+}
+
+function forceDamienCar() {
+  clearTimeout(_carTimer);
+  const bar = document.getElementById('damien-car-bar');
+  bar.style.transition = 'none';
+  bar.style.width = '0%';
+  document.getElementById('damien-car-pct').textContent = '0%';
+  document.getElementById('damien-car-time').textContent = 'calcul en cours...';
+  document.getElementById('damien-car-msg').textContent = '';
+  document.getElementById('damien-car-range').textContent = '23 km';
+  setTimeout(() => { bar.style.transition = 'width 1.5s ease'; runDamienCarCharge(); }, 400);
+}
+
+function runDamienCarCharge() {
+  const bar   = document.getElementById('damien-car-bar');
+  const pct   = document.getElementById('damien-car-pct');
+  const time  = document.getElementById('damien-car-time');
+  const msg   = document.getElementById('damien-car-msg');
+  const range = document.getElementById('damien-car-range');
+
+  const phases = [
+    { delay: 700,  target: 2, t: '14h37', km: 23, m: '' },
+    { delay: 900,  target: 4, t: '13h52', km: 22, m: '"C\'est rapide ce chargeur !"' },
+    { delay: 1400, target: 6, t: '16h08', km: 22, m: '' },
+    { delay: 2000, target: 7, t: '19h45', km: 21, m: '"Hmm... c\'est normal ça ralentit"' },
+    { delay: 3000, target: 8, t: '23h17', km: 20, m: '' },
+    { delay: 4500, target: 9, t: '∞',     km: 20, m: '"9% c\'est suffisant pour le Tourmalet"' },
+  ];
+  const stuckMsgs = [
+    '"Je suis tranquille, ça va charger"',
+    '"La station EDF dit que c\'est normal"',
+    '"9% c\'est largement suffisant"',
+    '"On peut pousser si besoin"',
+    '"La prochaine borne est dans 3 km... ou 80"',
+    '"Mon Tricount dit que l\'électricité est moins chère que l\'essence"',
+    '"Damien consulte les équinoxes pour optimiser la charge"',
+  ];
+
+  let idx = 0;
+  function step() {
+    if (idx >= phases.length) {
+      msg.textContent = stuckMsgs[Math.floor(Math.random() * stuckMsgs.length)];
+      _carTimer = setTimeout(step, 9000 + Math.random() * 12000);
+      return;
+    }
+    const p = phases[idx++];
+    _carTimer = setTimeout(() => {
+      bar.style.width   = p.target + '%';
+      pct.textContent   = p.target + '%';
+      time.textContent  = p.t;
+      range.textContent = p.km + ' km';
+      if (p.m) msg.textContent = p.m;
+      step();
+    }, p.delay);
+  }
+  step();
+}
+
+function initDamienCar() {
+  setTimeout(showDamienCar, 45000 + Math.random() * 30000);
+}
+
 function buildChaosBackground() {
   const chaos = document.querySelector('.chaos-bg');
   if (!chaos) return;
@@ -462,6 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
   observeCanyoning();
   initFightButton();
   buildChaosBackground();
+  initDamienCar();
 
   // ESC to close modals/popups
   document.addEventListener('keydown', e => {

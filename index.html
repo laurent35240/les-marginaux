@@ -510,6 +510,28 @@
   </div>
 </div>
 
+<!-- Modal Voiture Électrique de Damien -->
+<div id="damien-car-modal" class="modal hidden" style="z-index:72;" onclick="if(event.target===this)closeDamienCar()">
+  <div class="damien-car-box">
+    <p class="damien-car-header">🔋 CHARGEMENT EN COURS 🔋</p>
+    <div class="damien-car-scene">
+      <span>🚗</span><span class="damien-car-zap">⚡</span><span>🔌</span>
+    </div>
+    <div class="damien-car-progress-wrap">
+      <div class="damien-car-bar" id="damien-car-bar"></div>
+    </div>
+    <p class="damien-car-pct" id="damien-car-pct">0%</p>
+    <p class="damien-car-stat">🛣️ Autonomie restante : <strong id="damien-car-range">23 km</strong></p>
+    <p class="damien-car-stat">⏱️ Temps estimé : <strong id="damien-car-time">calcul en cours...</strong></p>
+    <p class="damien-car-msg" id="damien-car-msg"></p>
+    <p class="damien-car-sig">— Damien, confiant dans la technologie moderne</p>
+    <div style="display:flex;gap:1rem;justify-content:center;margin-top:1.2rem;">
+      <button class="retro-car-btn" onclick="closeDamienCar()">Partir à pied 🚶</button>
+      <button class="retro-car-btn retro-car-force" onclick="forceDamienCar()">⚡ Forcer</button>
+    </div>
+  </div>
+</div>
+
 <!-- Damien sticky widget -->
 <aside id="damien-countdown" onclick="openModal('damien-popup')" title="Cliquez pour l'explication scientifique">
   <div class="damien-header">DÉCOMPTE DE DAMIEN</div>
